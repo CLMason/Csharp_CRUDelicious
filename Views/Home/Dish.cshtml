@@ -1,0 +1,51 @@
+@{
+    ViewData["Title"] = "View Dish";
+}
+
+@using CRUDelicious.Models
+@model Dish
+
+<style>
+    .text-center {
+        margin-top:20px;
+    }
+    h1{
+        text-align:center;
+    }
+    h3{
+        text-align:center;
+
+    }
+    h5{
+        text-align:center;
+    }
+    a{
+        float:right;
+    }
+</style>
+
+<body>   
+    <div class="text-center jumbotron">
+    <h1 class="display-4">@Model.Name</h1>
+    <h3>Chef's Name:@Model.Chef</h3>
+    <a href="/" class="home">Home</a>
+</div>
+    
+    <hr>
+    <p>Description: @Model.Description</p>
+    <p><strong>Calories: </strong>@Model.Calories</p>
+    <p><strong>Tastiness:</strong> @Model.Tastiness</p>
+
+
+    <form action="/delete/@Model.DishId" method="POST">
+        <input type="submit" value="Delete Dish">
+    </form>
+    <br>
+    <form action="/edit/@Model.DishId" method="GET">
+        <input type="submit" value="Edit Dish">
+    </form>
+    
+    
+    
+</body>
+</html>

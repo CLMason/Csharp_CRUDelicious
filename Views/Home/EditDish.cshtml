@@ -1,0 +1,60 @@
+@{
+    ViewData["Title"] = "Home Page";
+}
+@model Dish
+<style>
+    .text-center {
+        margin-top:20px;
+    }
+</style>
+<div class="body">
+    <div class="text-center jumbotron">
+        <h1 class="display-4">@Model.Name</h1>
+    </div>
+        <form action="/edit/@Model.DishId" method="POST">
+            <div class="row">
+                <div class="form-group col-sm-6">
+                    <span asp-validation-for="Chef"></span> <!-- "asp-for" are helpers to prevent us from righting the same code -->
+                    <label asp-for="Chef">Chef's Name:</label>
+                    <input asp-for="Chef" class="form-control">
+                </div>
+
+                <div class="form-group col-sm-6">
+                    <span asp-validation-for="Name"></span>
+                    <label asp-for="Name">Name of Dish:</label>
+                    <input asp-for="Name" class="form-control">
+                </div>
+            </div>
+            <div class="row">
+                <div class="form-group col-sm-6">
+                    <span asp-validation-for="Calories"></span>
+                    <label asp-for="Calories"># of Calories:</label>
+                    <input asp-for="Calories" class="form-control">
+                </div>
+            
+                <div class="form-group col-sm-6">
+                    <span asp-validation-for="Tastiness"></span>
+                    <label asp-for="Tastiness">Tastiness:</label>
+                    <select asp-for="Tastiness" name="Tastiness" class="form-control">
+                        <option></option>
+                        <option>1</option>
+                        <option>2</option>
+                        <option>3</option>
+                        <option>4</option>
+                        <option>5</option>
+                    </select>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="form-group">
+                        <span asp-validation-for="Description"></span>
+                        <label asp-for="Description">Description:</label>
+                        <textarea asp-for="Description" name="Description" class="form-control"></textarea>
+                    </div>
+                </div>
+            </div>
+            
+            <input value="Edit Dish" type="submit" class="addButton"> 
+        </form>
+</div>

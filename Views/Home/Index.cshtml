@@ -1,0 +1,55 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+@model Dish
+
+<style>
+    .text-center {
+        margin-top:20px;
+    }
+    .header{
+        overflow:hidden;
+        padding:20px 10px;
+        margin-bottom:20px;
+    }
+    .header-right{
+        float: right;
+    }
+    h4{
+        float:left;
+        text-align:center;
+        text-decoration:none;
+        margin-bottom:20px;
+    }
+    .table{
+        margin-top:30px;
+        text-align:center;
+    }
+</style>
+<div class="text-center jumbotron">
+    <h1 class="display-4">Welcome to CRUDelicious!</h1>
+</div>
+<div class="header">
+    <h4>Check out some recent dishes!</h4>
+    <div class="header-right">
+        <a href="/new"class="add">Add a Dish</a>
+    </div>
+</div>
+    
+    <table class="table">
+        <tr>
+            <th>Name</th>
+            <th>Chef</th>
+        </tr>
+        <!-- want to create a row for each dish in our list of dishes  -->
+        @foreach (var dish in ViewBag.Dishes)
+        {
+            <tr>
+                <!-- iterating through all the dishes. -->
+                <td><a href="/@dish.DishId">@dish.Name</a></td> 
+                <td>@dish.Chef</td>
+                <!-- <td><a href="/edit/@dish.DishId" class="btn btn-sm btn-info">Edit</a></td> -->
+            </tr>
+        }
+    </table>
+
